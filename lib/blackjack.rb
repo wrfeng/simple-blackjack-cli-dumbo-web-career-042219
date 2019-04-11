@@ -23,9 +23,9 @@ def end_game(card_total)
 end
 
 def initial_round
-  sum = deal_card + deal_card
-  display_card_total(sum)
-  sum
+  card_total = deal_card + deal_card
+  display_card_total(card_total)
+  card_total
 end
 
 def hit?(card_total)
@@ -35,11 +35,16 @@ def hit?(card_total)
   case input 
   
   when 'h'
-    deal_card
-    
+    card_total += deal_card
+  when 's'
+    card_total
+  else
+    invalid_command
+    prompt_user
 end
 
 def invalid_command
+  puts "Please enter a valid command"
 end
 
 #####################################################
